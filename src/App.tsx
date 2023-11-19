@@ -1,14 +1,10 @@
-import "./App.css";
-import { Counter } from "@components/Counter";
-import { LastUpdated } from "@components/LastUpdated";
+import { Todo } from "@/components/Todo";
 
 function App() {
   return (
     <>
-      <div className="card">
-        <Counter />
-        <LastUpdated />
-      </div>
+      <h1>Todo App</h1>
+      <Todo />
     </>
   );
 }
