@@ -6,9 +6,23 @@ export type Todo = {
 
 export type TodoState = Todo[];
 
-export type TodoAction = {
-  type: "added" | "changed" | "deleted";
-  id?: number;
-  text?: string;
-  todo?: Todo;
+export type TodoChangedAction = {
+  type: "changed";
+  todo: Todo;
 };
+
+export type TodoDeletedAction = {
+  type: "deleted";
+  id: number;
+};
+
+export type TodoAddedAction = {
+  type: "added";
+  id: number;
+  text: string;
+};
+
+export type TodoAction =
+  | TodoChangedAction
+  | TodoDeletedAction
+  | TodoAddedAction;

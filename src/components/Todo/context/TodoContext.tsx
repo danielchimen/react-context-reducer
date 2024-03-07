@@ -7,25 +7,21 @@ import {
 } from "react";
 import { todoReducer } from "../reducer/todoReducer";
 
-const initialTodos: TodoState = [
-  { id: 0, text: "Philosopher’s Path", done: true },
-  { id: 1, text: "Visit the temple", done: false },
-  { id: 2, text: "Drink matcha", done: false },
-];
-
 export const TodoContext = createContext<{
   state: TodoState;
   dispatch: Dispatch<TodoAction>;
 }>({
-  state: initialTodos,
+  state: [],
   dispatch: () => null,
 });
 
-export const TodoProvider: ({
+export const TodoProvider = ({
+  initialTodos,
   children,
 }: {
+  initialTodos: TodoState;
   children: ReactNode;
-}) => ReactNode = ({ children }) => {
+}) => {
   const [todos, dispatch] = useReducer(todoReducer, initialTodos);
 
   return (

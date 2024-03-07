@@ -28,7 +28,8 @@ export const todoReducer = (
       return todos.filter((t) => t.id !== action.id);
     }
     default: {
-      throw Error("Unknown action: " + action.type);
+      const _exhaustiveCheck: never = action;
+      throw Error("Unknown action: " + _exhaustiveCheck);
     }
   }
 };
