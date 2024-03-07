@@ -1,15 +1,10 @@
 import type { TodoAction, TodoState } from "../types";
-import {
-  type ReactNode,
-  type Dispatch,
-  createContext,
-  useReducer,
-} from "react";
+import { createContext, useReducer } from "react";
 import { todoReducer } from "../reducer/todoReducer";
 
 export const TodoContext = createContext<{
   state: TodoState;
-  dispatch: Dispatch<TodoAction>;
+  dispatch: React.Dispatch<TodoAction>;
 }>({
   state: [],
   dispatch: () => null,
@@ -20,7 +15,7 @@ export const TodoProvider = ({
   children,
 }: {
   initialTodos: TodoState;
-  children: ReactNode;
+  children: React.ReactNode;
 }) => {
   const [todos, dispatch] = useReducer(todoReducer, initialTodos);
 
